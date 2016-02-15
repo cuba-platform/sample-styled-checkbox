@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.haulmont.styledcheckbox.web.screens.StyledCheckboxExample"
+        messagesPack="com.haulmont.themecustomisation.web.screens">
+    <layout>
+        <hbox margin="true"
+              width="412px">
+            <label value="msg://screenLabel"/>
+            <checkBox id="sampleCheckBox"
+                      stylename="onoffswitch"/>
+        </hbox>
+    </layout>
+</window>
