@@ -2,8 +2,8 @@
 
 This is a showcase application which is developed to demonstrate:
   - Customizing UI components via theme extensions
-  - Creating new DOM elements via `.setCaptionAsHtml()` method
-  - Using SCSS insertions 
+  - Set HTML to component caption via Vaadin API using `.setCaptionAsHtml()` method
+  - Using SCSS styling 
 
 ### Changes
   - Added new theme extention
