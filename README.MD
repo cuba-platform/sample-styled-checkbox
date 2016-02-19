@@ -1,8 +1,10 @@
 # Styled Checkbox
 
 This is a showcase application which is developed to demonstrate how to customize UI components:
-  - The `StyledCheckBoxExample.java` sets HTML caption to component
+  - The `StyledCheckBoxExample.java` sets HTML caption to component 
   - The `styled-checkbox-example.xml` screen displays new customized checkbox.
+
+![Styled checkbox](/example.jpg)
 
 To see the example in action, do the following:
   - Open the project in Studio
