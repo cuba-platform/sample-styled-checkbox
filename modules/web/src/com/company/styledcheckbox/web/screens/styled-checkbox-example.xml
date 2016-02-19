@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2016 styled-checkbox
+  -->
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://caption"
-        class="com.haulmont.styledcheckbox.web.screens.StyledCheckboxExample"
-        messagesPack="com.haulmont.themecustomisation.web.screens">
+        class="com.company.styledcheckbox.web.screens.StyledCheckboxExample"
+        messagesPack="com.company.styledcheckbox.web">
     <layout>
         <hbox margin="true"
               width="412px">

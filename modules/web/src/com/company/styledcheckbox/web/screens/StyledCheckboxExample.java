@@ -1,4 +1,8 @@
-package com.haulmont.styledcheckbox.web.screens;
+/*
+ * Copyright (c) 2016 styled-checkbox
+ */
+
+package com.company.styledcheckbox.web.screens;
 
 import com.haulmont.cuba.gui.components.AbstractWindow;
 import com.haulmont.cuba.gui.components.CheckBox;
