@@ -1,10 +1,8 @@
 # Styled Checkbox
 
-This is an example of customizing UI components via CSS.
+This is an example of customizing the standard UI components via CSS.
   - The `StyledCheckBoxExample.java` screen controller sets an HTML caption to `com.vaadin.ui.CheckBox` which is obtained by unwrapping the `CheckBox` component.
   - The `modules/web/themes/halo/halo-ext.scss` file contains the CSS code for the component.
-
-![Styled checkbox](/example.jpg)
 
 To see the example in action, do the following:
   - Open the project in Studio
