@@ -1,8 +1,8 @@
 # Styled Checkbox
 
-This is a showcase application which is developed to demonstrate how to customize UI components:
-  - The `StyledCheckBoxExample.java` sets HTML caption to component 
-  - The `styled-checkbox-example.xml` screen displays new customized checkbox.
+This is an example of customizing UI components via CSS.
+  - The `StyledCheckBoxExample.java` screen controller sets an HTML caption to `com.vaadin.ui.CheckBox` which is obtained by unwrapping the `CheckBox` component.
+  - The `modules/web/themes/halo/halo-ext.scss` file contains the CSS code for the component.
 
 ![Styled checkbox](/example.jpg)
 
@@ -11,6 +11,6 @@ To see the example in action, do the following:
   - Click *Run* > *Start application* server
   - If you see the warning *Database does not exist* ..., click *Create DB in background*
   - Go to `http://localhost:8080/app` and log in as `admin / admin`
-  - Open *Application* > *Styled checkbox example*, try to turn on and turn off styled checkbox.
+  - Open *Application* > *Styled checkbox example*.
 
 Based on CUBA Platform 6.0.8

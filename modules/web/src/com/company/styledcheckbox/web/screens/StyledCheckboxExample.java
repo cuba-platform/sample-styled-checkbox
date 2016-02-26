@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2016 styled-checkbox
- */
-
 package com.company.styledcheckbox.web.screens;
 
 import com.haulmont.cuba.gui.components.AbstractWindow;
