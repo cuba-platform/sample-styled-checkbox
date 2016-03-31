@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
     <include file="/screens.xml"/>
-    <screen id="styled_checkbox_example"
+    <screen id="styled-checkbox-example"
             template="/com/company/styledcheckbox/web/screens/styled-checkbox-example.xml"/>
 </screen-config>
