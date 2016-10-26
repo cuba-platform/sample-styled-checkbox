@@ -1,7 +1,7 @@
 
 
 buildscript {
-    ext.cubaVersion = '6.2.5'
+    ext.cubaVersion = '6.3.2'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -13,10 +13,12 @@ buildscript {
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
+        classpath "com.haulmont.cuba:cuba-global:$cubaVersion"
     }
 }
 
 def globalModule = project(':app-global')
+def webThemesModule= project(':app-web-themes')
 def coreModule = project(':app-core')
 def guiModule = project(':app-gui')
 def webModule = project(':app-web')
@@ -68,14 +70,30 @@ configure([globalModule, coreModule, guiModule, webModule]) {
 }
 
 configure(globalModule) {
-    dependencies {
-        compile("com.haulmont.cuba:cuba-global:$cubaVersion")
-
-    }
-
     task enhance(type: CubaEnhancing)
-    
 }
+
+configure(webThemesModule) {
+    apply(plugin: 'java')
+    apply(plugin: 'maven')
+    apply(plugin: 'cuba')
+
+    appModuleType = 'web-themes'
+
+    buildDir = file('../build/scss-themes')
+
+    sourceSets {
+        main {
+            java {
+                srcDir '.'
+            }
+            resources {
+                srcDir '.'
+            }
+        }
+    }
+}
+
 
 configure(coreModule) {
 
@@ -89,10 +107,6 @@ configure(coreModule) {
         provided(servletApi)
         jdbc(hsql)
         testRuntime(hsql)
-        compile("com.haulmont.cuba:cuba-core:$cubaVersion")
-        testCompile("com.haulmont.cuba:cuba-core-tests:$cubaVersion")
-        testCompile("com.haulmont.cuba:cuba-shared-lib:$cubaVersion")
-        dbscripts("com.haulmont.cuba:cuba-core:$cubaVersion:db@zip")
 
     }
 
@@ -107,8 +121,7 @@ configure(coreModule) {
 
     task deploy(dependsOn: [assemble, cleanConf], type: CubaDeployment) {
         appName = 'app-core'
-        appJars('cuba-global', 'cuba-core', 
-                'app-global', 'app-core')
+        appJars('app-global', 'app-core')
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
@@ -131,9 +144,6 @@ configure(coreModule) {
 configure(guiModule) {
     dependencies {
         compile(globalModule)
-        compile("com.haulmont.cuba:cuba-client:$cubaVersion")
-        compile("com.haulmont.cuba:cuba-gui:$cubaVersion")
-        testCompile("com.haulmont.cuba:cuba-client-tests:$cubaVersion")
         testCompile('org.jmockit:jmockit:1.15')
 
     }
@@ -156,10 +166,6 @@ configure(webModule) {
         provided(servletApi)
         compile(globalModule)
         compile(guiModule)
-        compile("com.haulmont.cuba:cuba-web:$cubaVersion")
-        webcontent("com.haulmont.cuba:cuba-web:$cubaVersion:web@zip")
-        webcontent("com.haulmont.cuba:cuba-web-toolkit:$cubaVersion:web@zip")
-        testCompile("com.haulmont.cuba:cuba-client-tests:$cubaVersion")
         testCompile('org.jmockit:jmockit:1.15')
         themes("com.haulmont.cuba:cuba-web-themes:$cubaVersion")
         provided("com.haulmont.cuba:cuba-web-themes:$cubaVersion")
@@ -198,15 +204,11 @@ configure(webModule) {
 
     task deploy(dependsOn: [assemble, cleanConf], type: CubaDeployment) {
         appName = 'app'
-        appJars('cuba-global', 'cuba-client', 'cuba-gui', 'cuba-web', 
-                'app-global', 'app-gui', 'app-web', 'cuba-rest-api')
+        appJars('app-global', 'app-gui', 'app-web')
     }
     task buildScssThemes(type: CubaWebScssThemeCreation)
     assemble.dependsOn buildScssThemes
 }
-
-
-
 
 task undeploy(type: Delete, dependsOn: ':app-web:cleanConf') {
     delete("$cuba.tomcat.dir/shared")
