@@ -13,4 +13,4 @@ To see the example in action, do the following:
   - Go to `http://localhost:8080/app` and log in as `admin / admin`
   - Open *Application* > *Styled checkbox example*.
 
-Based on CUBA Platform 6.8.1
+Based on CUBA Platform 6.9.1
