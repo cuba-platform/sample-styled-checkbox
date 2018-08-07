@@ -14,3 +14,6 @@ To see the example in action, do the following:
   - Open *Application* > *Styled checkbox example*.
 
 Based on CUBA Platform 6.9.1
+
+## Issues
+Please use https://www.cuba-platform.com/discuss for discussion, support, and reporting problems coressponding to this sample.
